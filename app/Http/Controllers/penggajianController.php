@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
+use App\TunjanganPegawai;
+use App\Penggajian;
+use App\Jabatan;
+use App\Golongan;
+use App\Tunjangan;
 
 class penggajianController extends Controller
 {
@@ -11,9 +16,16 @@ class penggajianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('Admin');
+    }
     public function index()
     {
         //
+        $gajian=Penggajian::all();
+        $tupe=TunjanganPegawai::all();
+        return view('penggajian.index', compact('gajian', 'tupe'));
     }
 
     /**
@@ -24,6 +36,8 @@ class penggajianController extends Controller
     public function create()
     {
         //
+        $tupe=TunjanganPegawai::all();
+        return view('penggajian.create', compact('tupe'));
     }
 
     /**
@@ -35,6 +49,9 @@ class penggajianController extends Controller
     public function store(Request $request)
     {
         //
+        $gajian=request::all();
+        Penggajian::create($gajian);
+        return redirect('gaji');
     }
 
     /**
@@ -57,6 +74,9 @@ class penggajianController extends Controller
     public function edit($id)
     {
         //
+        $gajian=Penggajian::all();
+        $tupe=TunjanganPegawai::all();
+        return view('penggajian.index', compact('gajian', 'tupe'));
     }
 
     /**
@@ -69,6 +89,10 @@ class penggajianController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $gajiupdate = Request::all();
+        $gajian= Penggajian::find($id);
+        $gajian->update($gajiupdate);
+        return redirect('gaji');
     }
 
     /**
@@ -80,5 +104,7 @@ class penggajianController extends Controller
     public function destroy($id)
     {
         //
+         Penggajian::find($id)->delete();
+        return redirect('gaji');
     }
 }

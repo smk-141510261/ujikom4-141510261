@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
+use App\TunjanganPegawai;
+use App\Pegawai;
+use App\Tunjangan;
 
 class tunjangpegawaiController extends Controller
 {
@@ -11,9 +14,17 @@ class tunjangpegawaiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('Admin');
+    }
     public function index()
     {
         //
+        $tupe=TunjanganPegawai::all();
+        $tunjangann=Tunjangan::all();
+        $pegawai=Pegawai::all();
+        return view('tunjanganpegawai.index', compact('tupe', 'tunjangann', 'pegawai'));
     }
 
     /**
@@ -24,6 +35,9 @@ class tunjangpegawaiController extends Controller
     public function create()
     {
         //
+        $tunjangann=Tunjangan::all();
+        $pegawai=Pegawai::all();
+        return view('tunjanganpegawai.create', compact('tunjangann', 'pegawai'));
     }
 
     /**
@@ -35,6 +49,9 @@ class tunjangpegawaiController extends Controller
     public function store(Request $request)
     {
         //
+        $tupe=request::all();
+        TunjanganPegawai::create($tupe);
+        return redirect('tp');
     }
 
     /**
@@ -57,6 +74,10 @@ class tunjangpegawaiController extends Controller
     public function edit($id)
     {
         //
+        $tupe=TunjanganPegawai::find($id);
+        $tunjangann=Tunjangan::all();
+        $pegawai=Pegawai::all();
+        return view('tunjanganpegawai.edit',compact('tupe','tunjangann','pegawai'));
     }
 
     /**
@@ -69,6 +90,10 @@ class tunjangpegawaiController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $tunjanggawaiupdate = Request::all();
+        $tupe= TunjanganPegawai::find($id);
+        $tupe->update($tunjanggawaiupdate);
+        return redirect('tp');
     }
 
     /**
@@ -80,5 +105,7 @@ class tunjangpegawaiController extends Controller
     public function destroy($id)
     {
         //
+         TunjanganPegawai::find($id)->delete();
+        return redirect('tp');
     }
 }

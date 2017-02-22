@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-            <div class="panel panel-default">
+            <div class="panel panel-warning">
                 <div class="panel-heading">Pegawai</div>
 
                 <div class="panel-body">
@@ -35,7 +35,7 @@
                                     <td><a href="{{route('gawai.edit',$data->id)}}" class="btn btn-warning">Ubah</a></td>
                                     <td>
                                     {!! Form::open(['method' => 'DELETE', 'route'=>['gawai.destroy', $data->id]]) !!}
-                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                    {!! Form::submit('Hapus', ['class' => 'btn btn-danger']) !!}
                                     {!! Form::close() !!}
                                     </td>
                                 </tr>

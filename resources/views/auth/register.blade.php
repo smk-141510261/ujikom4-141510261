@@ -62,15 +62,12 @@
 
                         <div class="form-group{{ $errors->has('permission') ? ' has-error' : '' }}">
                             <label for="permission" class="col-md-4 control-label">Permission</label>
-
-                            <div class="col-md-6">
-                                <input id="permission" type="text" class="form-control" name="permission" value="{{ old('permission') }}" required autofocus>
-
-                                @if ($errors->has('permission'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('permission') }}</strong>
-                                    </span>
-                                @endif
+                                <div class="col-md-6">
+                                <select class="form-control" name="permission">
+                                    <option value="Admin">Admin</option>
+                                    <option value="Pegawai">Pegawai</option>
+                                    <option value="HRD">HRD</option>
+                                </select>
                             </div>
                         </div>
 

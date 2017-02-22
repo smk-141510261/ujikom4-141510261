@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">Jabatan</div>
 
                 <div class="panel-body">
@@ -32,7 +32,7 @@
                                     <td><a href="{{route('jabat.edit',$data->id)}}" class="btn btn-warning">Ubah</a></td>
                                     <td>
                                     {!! Form::open(['method' => 'DELETE', 'route'=>['jabat.destroy', $data->id]]) !!}
-                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                    {!! Form::submit('Hapus', ['class' => 'btn btn-danger']) !!}
                                     {!! Form::close() !!}
                                     </td>
                                 </tr>

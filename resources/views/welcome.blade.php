@@ -65,6 +65,10 @@
         </style>
     </head>
     <body>
+    <style>
+ html,body{
+    background-image:url(blur.jpg); 
+ }</style>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">

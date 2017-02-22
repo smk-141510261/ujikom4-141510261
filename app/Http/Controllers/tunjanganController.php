@@ -14,6 +14,10 @@ class tunjanganController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('Admin');
+    }
     public function index()
     {
         //

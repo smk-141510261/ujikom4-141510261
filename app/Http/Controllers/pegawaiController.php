@@ -20,6 +20,10 @@ class pegawaicontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('HRD');
+    }
     public function index()
     {
         //
@@ -146,7 +150,6 @@ class pegawaicontroller extends Controller
                 }
             }
             $pegawai->nip = $request->get('nip');
-            $pegawai->user_id = $user->id;
             $pegawai->jabatan_id = $request->get('jabatan_id');
             $pegawai->golongan_id = $request->get('golongan_id');
             $pegawai->photo = $filename;

@@ -21,8 +21,12 @@
     </script>
 </head>
 <body>
+<style>
+ html,body{
+    background-image:url(blur.jpg); 
+ }</style>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-info navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -40,9 +44,20 @@
                     </a>
                 </div>
 
+
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                        <li><a href="{{ url('/jabat') }}">Jabatan</a></li>
+                        <li><a href="{{ url('/golong') }}">Golongan</a></li>
+                        <li><a href="{{ url('/tunjang') }}">Tunjangan</a></li>
+                        <li><a href="{{ url('/kategori') }}">Kategori Lembur</a></li>
+                        <li><a href="{{ url('/gawai') }}">Pegawai</a></li>
+                        <li><a href="{{ url('/lembur') }}">Lembur Pegawai</a></li>
+                        <li><a href="{{ url('/tp') }}">Tunjangan Pegawai</a></li>
+                        <li><a href="{{ url('/gaji') }}">Penggajian</a></li>
+
+
                         &nbsp;
                     </ul>
 
@@ -52,6 +67,7 @@
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
+                            
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

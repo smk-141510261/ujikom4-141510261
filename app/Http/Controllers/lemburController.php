@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\LemburPegawai;
-use App\KategoriLembur;
 use App\Pegawai;
-
+use Request;
+use Validator ;
+use App\KategoriLembur ;
+use Input ;
 class lemburController extends Controller
 {
     /**
@@ -14,13 +14,15 @@ class lemburController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('Admin');
+    }
     public function index()
     {
-        //
         $lemburpe=LemburPegawai::all();
-        $katlembur=KategoriLembur::all();
-        $pegawai=Pegawai::all();
-        return view('lemburpegawai.index',compact('lemburpe','pegawai','katlembur'));
+        return view('lemburpegawai.index',compact('lemburpe'));
+        //
     }
 
     /**
@@ -28,13 +30,11 @@ class lemburController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+     public function create()
+    {   $pegawai=Pegawai::all();
         $katlembur=KategoriLembur::all();
-        $pegawai=Pegawai::all();
-        return view('lemburpegawai.index',compact('pegawai','katlembur'));
-
+        return view('lemburpegawai.create',compact('katlembur','pegawai'));
+        //
     }
 
     /**
@@ -45,8 +45,11 @@ class lemburController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $lemburpe=request::all();
+        LemburPegawai::create($lemburpe);
+        return redirect('lembur');
     }
+    
 
     /**
      * Display the specified resource.
@@ -57,7 +60,7 @@ class lemburController extends Controller
     public function show($id)
     {
         //
-    }
+            }
 
     /**
      * Show the form for editing the specified resource.
@@ -68,6 +71,8 @@ class lemburController extends Controller
     public function edit($id)
     {
         //
+        $lemburpe=LemburPegawai::all();
+        return view('lemburpegawai.edit',compact('lemburpe'));
     }
 
     /**
@@ -80,6 +85,10 @@ class lemburController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $lemburupdate=Request::all();
+        $lemburpe=LemburPegawai::find($id);
+        $lemburpe->update($lemburupdate);
+        return redirect('lembur');
     }
 
     /**
@@ -91,5 +100,7 @@ class lemburController extends Controller
     public function destroy($id)
     {
         //
+        LemburPegawai::find($id)->delete();
+        return redirect('lembur');
     }
 }
