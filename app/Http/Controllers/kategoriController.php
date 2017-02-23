@@ -6,6 +6,8 @@ use Request;
 use App\KategoriLembur;
 use App\Jabatan;
 use App\Golongan;
+use Validator;
+use Input;
 
 class kategoriController extends Controller
 {
@@ -49,6 +51,7 @@ class kategoriController extends Controller
     public function store(Request $request)
     {
         //
+
         $katlembur=request::all();
         KategoriLembur::create($katlembur);
         return redirect('kategori');

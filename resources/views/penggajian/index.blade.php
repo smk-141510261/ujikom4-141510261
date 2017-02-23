@@ -8,7 +8,7 @@
                 <div class="panel-heading">Penggajian</div>
 
                 <div class="panel-body">
-                    <a href="{{url('/gaji/create')}}" class="btn btn-success btn-block">Tambah Penggajian</a><br>
+                    <center><a href="{{url('/gaji/create')}}" class="btn btn-success">Tambah Penggajian</a></center><br>
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
@@ -28,19 +28,37 @@
                             @php
                             $i=1;
                             @endphp
-                            @foreach ($gajian as $data)
+                            @foreach ($pegawai as $data)
                                 <tr>
                                     <td>{{$i++}}</td>
-                                    <td>{{$data->TunjanganPegawai->Tunjangan->kode_tunjangan}}</td>
-                                    <td>{{$data->jumlah_jam_lembur}}
-                                    <td>{{$data->jumlah_uang_lembur}}</td>
-                                    <th><center><?php echo 'Rp.'. number_format($data->TunjanganPegawai->Tunjangan->Jabatan
-                                    ->besaran_uang+$data->TunjanganPegawai->Tunjangan->Golongan
-                                    ->besaran_uang,2,",","."); ?></center>
-                                    <td>{{$data->total_gaji}}</td>
-                                    <td>{{$data->tgl_pengambilan}}</td>
-                                    <td>{{$data->status_pengambilan}}</td>
-                                    <td>{{$data->petugas_penerima}}</td>
+                                    <td>{{$data->User->name}}</td>
+                                    <td>
+                                    @foreach($tunjangan as $tun)
+                                        @if($tun->pegawai_id == $data->id)
+                                        {{$tun->Tunjangan->besaran_uang}}
+                                        @php $satu=$tun->Tunjangan->besaran_uang;;
+                                        @endphp
+                                    @endforeach
+                                    </td>
+                                
+                                    <td>
+                                    @foreach($lembur as $lem)
+                                        @if($lem->pegawai_id == $lem->id)
+                                        {{$lem->jmlh_jam}}
+                                        @php $dua=$lem->jmlh_jam*$lem->KategoriLembur->besaran_uang;
+                                        @endphp
+                                    @endforeach
+                                    </td>
+
+                                     <td>
+                                    @foreach($lembur as $lem)
+                                        @if($lem->pegawai_id == $lem->id)
+                                        {{$lem->jmlh_jam}}
+                                        @php $dua=$lem->jmlh_jam*$lem->KategoriLembur->besaran_uang;
+                                        @endphp
+                                    @endforeach
+                                    </td>
+
                                     <td><a href="{{route('gaji.edit',$data->id)}}" class="btn btn-warning">Ubah</a></td>
                                     <td>
                                     {!! Form::open(['method' => 'DELETE', 'route'=>['gaji.destroy', $data->id]]) !!}

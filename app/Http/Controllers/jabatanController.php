@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Request;
 use App\Jabatan;
+use Validator;
+use Input;
 
 class jabatanController extends Controller
 {
@@ -43,6 +45,7 @@ class jabatanController extends Controller
     public function store(Request $request)
     {
         //
+        
         $jabatann=Request::all();
         Jabatan::create($jabatann);
         return redirect ('jabat');

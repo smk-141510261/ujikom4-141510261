@@ -8,7 +8,7 @@
                 <div class="panel-heading">Tambah Lembur Pegawai</div>
 
                 <div class="panel-body">
-                    <a href="{{url('/lembur')}}" class="btn btn-success btn-block">Kembali</a><br>
+                    <a href="{{url('/lembur')}}" class="btn btn-success">Kembali</a><br>
                     {!! Form::open(['url'=>'lembur'])!!}
                                         
                     <label>Kode Lembur</label>

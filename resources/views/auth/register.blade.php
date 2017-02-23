@@ -67,6 +67,7 @@
                                     <option value="Admin">Admin</option>
                                     <option value="Pegawai">Pegawai</option>
                                     <option value="HRD">HRD</option>
+                                    <option value="Keuangan">Keuangan</option>
                                 </select>
                             </div>
                         </div>

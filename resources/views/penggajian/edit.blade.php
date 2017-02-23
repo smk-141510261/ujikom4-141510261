@@ -8,7 +8,7 @@
                 <div class="panel-heading">Tambah Penggajian</div>
 
                 <div class="panel-body">
-                    <a href="{{url('/gaji')}}" class="btn btn-success btn-block">Kembali</a><br>
+                    <a href="{{url('/gaji')}}" class="btn btn-success">Kembali</a><br>
                     {!! Form::model($gajian,['method'=>'PATCH','route'=>['gaji.update',$gajian->id]])!!}
                                         
                     <label>Kode Tunjangan</label>

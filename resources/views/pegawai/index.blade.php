@@ -7,7 +7,7 @@
                 <div class="panel-heading">Pegawai</div>
 
                 <div class="panel-body">
-                    <a href="{{url('/gawai/create')}}" class="btn btn-success btn-block">Tambah Pegawai</a><br>
+                    <center><a href="{{url('/gawai/create')}}" class="btn btn-success">Tambah Pegawai</a></center><br>
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>

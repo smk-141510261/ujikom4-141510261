@@ -6,7 +6,7 @@
                 <div class="panel-heading">Ubah Tunjangan Pegawai</div>
 
                 <div class="panel-body">
-                    <a href="<?php echo e(url('/tp')); ?>" class="btn btn-success btn-block">Kembali</a><br>
+                    <a href="<?php echo e(url('/tp')); ?>" class="btn btn-success">Kembali</a><br>
                     <?php echo Form::model($tupe,['method'=>'PATCH','route'=>['tp.update',$tupe->id]]); ?>
 
                     <label>Kode Tunjangan</label>

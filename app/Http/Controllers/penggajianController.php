@@ -8,6 +8,8 @@ use App\Penggajian;
 use App\Jabatan;
 use App\Golongan;
 use App\Tunjangan;
+use App\Pegawai;
+use App\LemburPegawai;
 
 class penggajianController extends Controller
 {
@@ -18,14 +20,16 @@ class penggajianController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('Admin');
+        $this->middleware('Keuangan');
     }
     public function index()
     {
         //
         $gajian=Penggajian::all();
         $tupe=TunjanganPegawai::all();
-        return view('penggajian.index', compact('gajian', 'tupe'));
+        $lemburpe=LemburPegawai::all();
+        $tunjangann=Tunjangan::all();
+        return view('penggajian.index', compact('gajian', 'tupe','lemburpe','tunjangann'));
     }
 
     /**

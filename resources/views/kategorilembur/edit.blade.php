@@ -3,12 +3,12 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-5 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">Ubah Kategori Lembur</div>
 
                 <div class="panel-body">
-                    <a href="{{url('/kategori')}}" class="btn btn-success btn-block">Kembali</a><br>
+                    <a href="{{url('/kategori')}}" class="btn btn-success">Kembali</a><br>
                     {!! Form::model($katlembur,['method'=>'PATCH','route'=>['kategori.update',$katlembur->id]])!!}
                     <div class="form-group">
                         {!! Form::label('Kode Lembur','Kode Lembur')!!}

@@ -1,12 +1,12 @@
 <?php $__env->startSection('content'); ?>
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-5 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">Ubah Kategori Lembur</div>
 
                 <div class="panel-body">
-                    <a href="<?php echo e(url('/kategori')); ?>" class="btn btn-success btn-block">Kembali</a><br>
+                    <a href="<?php echo e(url('/kategori')); ?>" class="btn btn-success">Kembali</a><br>
                     <?php echo Form::model($katlembur,['method'=>'PATCH','route'=>['kategori.update',$katlembur->id]]); ?>
 
                     <div class="form-group">

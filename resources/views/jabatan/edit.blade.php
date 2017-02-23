@@ -3,12 +3,12 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-5 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">Edit Jabatan</div>
 
                 <div class="panel-body">
-                    <a href="{{url('/jabat')}}" class="btn btn-success btn-block">Kembali</a><br>
+                    <a href="{{url('/jabat')}}" class="btn btn-success">Kembali</a><br>
                     {!! Form::model($jabatann,['method'=>'PATCH','route'=>['jabat.update',$jabatann->id]])!!}
                     <div class="form-group">
                         {!! Form::label('Kode Jabatan','Kode Jabatan')!!}

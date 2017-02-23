@@ -6,7 +6,7 @@
                 <div class="panel-heading">Golongan</div>
 
                 <div class="panel-body">
-                    <a href="<?php echo e(url('/golong/create')); ?>" class="btn btn-success btn-block">Tambah Golongan</a><br>
+                    <center><a href="<?php echo e(url('/golong/create')); ?>" class="btn btn-success">Tambah Golongan</a></center><br>
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>

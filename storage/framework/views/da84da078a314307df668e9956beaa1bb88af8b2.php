@@ -1,12 +1,12 @@
 <?php $__env->startSection('content'); ?>
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-5 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">Tambah Tunjangan</div>
 
                 <div class="panel-body">
-                    <a href="<?php echo e(url('/tunjang')); ?>" class="btn btn-success btn-block">Kembali</a><br>
+                    <a href="<?php echo e(url('/tunjang')); ?>" class="btn btn-success">Kembali</a><br>
                     <?php echo Form::open(['url'=>'tunjang']); ?>
 
                     <div class="form-group">
@@ -28,10 +28,16 @@
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
                     </select><br>
                     <div class="form-group">
-                        <?php echo Form::label('Status','Status'); ?>
+                    <?php echo Form::label('Status','Status'); ?>
 
-                        <?php echo Form::text('status',null,['class'=>'form-control','required']); ?>
-
+                        <br><input type="radio" value="Menikah" checked id="status" name="status">
+                        <label for="status">Menikah</label>
+                        <br><input type="radio" value="Belum menikah" checked id="status" name="status">
+                        <label for="status">Belum menikah</label>
+                        <br><input type="radio" value="Janda" checked id="status" name="status">
+                        <label for="status">Janda</label>
+                        <br><input type="radio" value="Duda" checked id="status" name="status">
+                        <label for="status">Duda</label>
                     </div>
                     <div class="form-group">
                         <?php echo Form::label('Jumlah Anak','Jumlah Anak'); ?>

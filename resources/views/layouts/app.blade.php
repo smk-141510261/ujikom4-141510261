@@ -23,7 +23,7 @@
 <body>
 <style>
  html,body{
-    background-image:url(blur.jpg); 
+    background-image:url(tum.gif); 
  }</style>
     <div id="app">
         <nav class="navbar navbar-info navbar-static-top">

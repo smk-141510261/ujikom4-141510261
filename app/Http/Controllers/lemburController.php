@@ -6,7 +6,7 @@ use App\Pegawai;
 use Request;
 use Validator ;
 use App\KategoriLembur ;
-use Input ;
+
 class lemburController extends Controller
 {
     /**
@@ -71,8 +71,10 @@ class lemburController extends Controller
     public function edit($id)
     {
         //
-        $lemburpe=LemburPegawai::all();
-        return view('lemburpegawai.edit',compact('lemburpe'));
+        $pegawai=Pegawai::all();
+        $katlembur=KategoriLembur::all();
+        $lemburpe=LemburPegawai::find($id);
+        return view('lemburpegawai.edit',compact('lemburpe','pegawai','katlembur'));
     }
 
     /**

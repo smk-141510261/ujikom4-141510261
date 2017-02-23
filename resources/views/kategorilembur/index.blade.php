@@ -8,7 +8,7 @@
                 <div class="panel-heading">Kategori Lembur</div>
 
                 <div class="panel-body">
-                    <a href="{{url('/kategori/create')}}" class="btn btn-success btn-block">Tambah Kategori Lembur</a><br>
+                    <center><a href="{{url('/kategori/create')}}" class="btn btn-success">Tambah Kategori Lembur</a></center><br>
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>

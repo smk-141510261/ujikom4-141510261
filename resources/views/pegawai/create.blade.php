@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5">
-                <div class="panel panel-primary">
+                <div class="panel panel-info">
                     <div class="panel-heading"><center>Tambah User</center></div>
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('gawai.store') }}" enctype="multipart/form-data">
@@ -32,6 +32,7 @@
                                     <option value="Pegawai">Pegawai</option>
                                     <option value="HRD">HRD</option>
                                     <option value="Admin">Admin</option>
+                                    <option value="Keuangan">Keuangan</option>
                                     </select>
 
                                     @if ($errors->has('permission'))
@@ -83,7 +84,7 @@
             </div>
                 <!-- /.col-lg-6 -->
                     <div class="col-md-5">
-                        <div class="panel panel-primary">
+                        <div class="panel panel-info">
                             <div class="panel-heading">Tambah Pegawai</div>
                                 <div class="panel-body">
                                 <div class="table-responsive table-bordered">
@@ -160,7 +161,7 @@
                     <br>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-8">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-success">
                                     Simpan
                                 </button>
                             </div>

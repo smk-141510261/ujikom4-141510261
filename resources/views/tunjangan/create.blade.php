@@ -3,12 +3,12 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-5 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">Tambah Tunjangan</div>
 
                 <div class="panel-body">
-                    <a href="{{url('/tunjang')}}" class="btn btn-success btn-block">Kembali</a><br>
+                    <a href="{{url('/tunjang')}}" class="btn btn-success">Kembali</a><br>
                     {!! Form::open(['url'=>'tunjang'])!!}
                     <div class="form-group">
                         {!! Form::label('Kode Tunjangan','Kode Tunjangan')!!}
@@ -27,8 +27,15 @@
                         @endforeach
                     </select><br>
                     <div class="form-group">
-                        {!! Form::label('Status','Status')!!}
-                        {!! Form::text('status',null,['class'=>'form-control','required'])!!}
+                    {!! Form::label('Status','Status')!!}
+                        <br><input type="radio" value="Menikah" checked id="status" name="status">
+                        <label for="status">Menikah</label>
+                        <br><input type="radio" value="Belum menikah" checked id="status" name="status">
+                        <label for="status">Belum menikah</label>
+                        <br><input type="radio" value="Janda" checked id="status" name="status">
+                        <label for="status">Janda</label>
+                        <br><input type="radio" value="Duda" checked id="status" name="status">
+                        <label for="status">Duda</label>
                     </div>
                     <div class="form-group">
                         {!! Form::label('Jumlah Anak','Jumlah Anak')!!}

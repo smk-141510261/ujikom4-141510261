@@ -6,7 +6,7 @@
                 <div class="panel-heading">Penggajian</div>
 
                 <div class="panel-body">
-                    <a href="<?php echo e(url('/gaji/create')); ?>" class="btn btn-success btn-block">Tambah Penggajian</a><br>
+                    <center><a href="<?php echo e(url('/gaji/create')); ?>" class="btn btn-success">Tambah Penggajian</a></center><br>
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>

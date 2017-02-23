@@ -3,12 +3,12 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-5 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">Tambah Kategori Lembur</div>
 
                 <div class="panel-body">
-                    <a href="{{url('/kategori')}}" class="btn btn-success btn-block">Kembali</a><br>
+                    <a href="{{url('/kategori')}}" class="btn btn-success">Kembali</a><br>
                     {!! Form::open(['url'=>'kategori'])!!}
                     <div class="form-group">
                         {!! Form::label('Kode Kategori Lembur','Kode Kategori Lembur')!!}

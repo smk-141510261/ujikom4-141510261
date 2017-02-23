@@ -6,7 +6,7 @@
                 <div class="panel-heading">Lembur Pegawai</div>
 
                 <div class="panel-body">
-                    <a href="<?php echo e(url('/lembur/create')); ?>" class="btn btn-success btn-block">Tambah Lembur Pegawai</a><br>
+                    <center><a href="<?php echo e(url('/lembur/create')); ?>" class="btn btn-success">Tambah Lembur Pegawai</a></center><br>
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
@@ -28,7 +28,7 @@
                             <?php $__currentLoopData = $lemburpe; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
                                 <tr>
                                     <td><?php echo e($i++); ?></td>
-                                    <td><?php echo e($data->kode_lembur_id); ?></td>
+                                    <td><?php echo e($data->KategoriLembur->kode_lembur); ?></td>
                                     <td><?php echo e($data->Pegawai->nip); ?>
 
                                     <td><?php echo e($data->Pegawai->User->name); ?></td>

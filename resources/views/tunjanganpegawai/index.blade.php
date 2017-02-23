@@ -8,7 +8,7 @@
                 <div class="panel-heading">Tambah Tunjangan Pegawai</div>
 
                 <div class="panel-body">
-                    <a href="{{url('/tp/create')}}" class="btn btn-success btn-block">Tambah Tunjangan Pegawai</a><br>
+                    <center><a href="{{url('/tp/create')}}" class="btn btn-success">Tambah Tunjangan Pegawai</a></center><br>
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>

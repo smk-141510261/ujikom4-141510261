@@ -6,7 +6,7 @@
                 <div class="panel-heading">Tunjangan</div>
 
                 <div class="panel-body">
-                    <a href="<?php echo e(url('/tunjang/create')); ?>" class="btn btn-success btn-block">Tambah Tunjangan</a><br>
+                    <center><a href="<?php echo e(url('/tunjang/create')); ?>" class="btn btn-success">Tambah Tunjangan</a></center><br>
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>

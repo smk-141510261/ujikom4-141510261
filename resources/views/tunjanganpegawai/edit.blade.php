@@ -8,7 +8,7 @@
                 <div class="panel-heading">Ubah Tunjangan Pegawai</div>
 
                 <div class="panel-body">
-                    <a href="{{url('/tp')}}" class="btn btn-success btn-block">Kembali</a><br>
+                    <a href="{{url('/tp')}}" class="btn btn-success">Kembali</a><br>
                     {!! Form::model($tupe,['method'=>'PATCH','route'=>['tp.update',$tupe->id]])!!}
                     <label>Kode Tunjangan</label>
                     <select name="kode_tunjangan_id" class="form-control" required>

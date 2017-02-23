@@ -6,7 +6,7 @@
                 <div class="panel-heading">Tambah Tunjangan Pegawai</div>
 
                 <div class="panel-body">
-                    <a href="<?php echo e(url('/tp')); ?>" class="btn btn-success btn-block">Kembali</a><br>
+                    <a href="<?php echo e(url('/tp')); ?>" class="btn btn-success">Kembali</a><br>
                     <?php echo Form::open(['url'=>'tp']); ?>
 
                                         

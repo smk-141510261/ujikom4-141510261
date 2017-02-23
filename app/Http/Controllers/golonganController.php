@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Request;
 use App\Golongan;
+use Validator;
+use Input;
 
 class golonganController extends Controller
 {
@@ -43,6 +45,21 @@ class golonganController extends Controller
     public function store(Request $request)
     {
         //
+        
+        /*$rules=['kode_golongan' => 'required|unique:golongans,kode_golongan',
+                'nama_golongan' => 'required','besaran_uang' => 'required'];
+
+        $sms=['kode_golongan.required' => 'tidak boleh kosong',
+              'nama_golongan.required' => 'tidak boleh kosong',
+              'besaran_uang.required' => 'tidak boleh kosong',
+                ];
+        $validasi = Validator::make(Input::all(),$rules,$sms);
+        if($validasi->fails()){
+            return redirect()->back()
+            ->withErrors($validasi)
+            ->withInput();
+        }*/
+
         $golongann=Request::all();
         Golongan::create($golongann);
         return redirect ('golong');
@@ -82,6 +99,26 @@ class golonganController extends Controller
     public function update(Request $request, $id)
     {
         //
+        /*$golongan=Golongan::where('id',$id)->first();
+        if($golongan['kode_golongan'] != Request('kode_golongan')){
+            $rules=['kode_golongan' => 'required|unique:golongans,kode_golongan',
+                'nama_golongan' => 'required','besaran_uang' => 'required'];
+        }
+        else{
+            $rules=['kode_golongan' => 'required',
+                'nama_golongan' => 'required','besaran_uang' => 'required'];
+        }
+        $sms=['kode_golongan.required' => 'tidak boleh kosong',
+              'nama_golongan.required' => 'tidak boleh kosong',
+              'besaran_uang.required' => 'tidak boleh kosong',
+                ];
+        $validasi = Validator::make(Input::all(),$rules,$sms);
+        if($validasi->fails()){
+            return redirect()->back()
+            ->withErrors($validasi)
+            ->withInput();
+        }*/
+
         $golonganupdate = Request::all();
         $golongann= Golongan::find($id);
         $golongann->update($golonganupdate);

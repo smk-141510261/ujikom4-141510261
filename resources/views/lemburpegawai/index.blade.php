@@ -8,7 +8,7 @@
                 <div class="panel-heading">Lembur Pegawai</div>
 
                 <div class="panel-body">
-                    <a href="{{url('/lembur/create')}}" class="btn btn-success btn-block">Tambah Lembur Pegawai</a><br>
+                    <center><a href="{{url('/lembur/create')}}" class="btn btn-success">Tambah Lembur Pegawai</a></center><br>
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
@@ -30,7 +30,7 @@
                             @foreach ($lemburpe as $data)
                                 <tr>
                                     <td>{{$i++}}</td>
-                                    <td>{{$data->kode_lembur_id}}</td>
+                                    <td>{{$data->KategoriLembur->kode_lembur}}</td>
                                     <td>{{$data->Pegawai->nip}}
                                     <td>{{$data->Pegawai->User->name}}</td>
                                     <td>{{$data->Pegawai->Jabatan->nama_jabatan}}</td>

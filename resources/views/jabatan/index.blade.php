@@ -8,7 +8,7 @@
                 <div class="panel-heading">Jabatan</div>
 
                 <div class="panel-body">
-                    <a href="{{url('/jabat/create')}}" class="btn btn-success btn-block">Tambah Jabatan</a><br>
+                    <center><a href="{{url('/jabat/create')}}" class="btn btn-success">Tambah Jabatan</a></center><br>
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>

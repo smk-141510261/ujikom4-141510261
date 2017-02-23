@@ -8,7 +8,7 @@
                 <div class="panel-heading">Tambah Tunjangan Pegawai</div>
 
                 <div class="panel-body">
-                    <a href="{{url('/tp')}}" class="btn btn-success btn-block">Kembali</a><br>
+                    <a href="{{url('/tp')}}" class="btn btn-success">Kembali</a><br>
                     {!! Form::open(['url'=>'tp'])!!}
                                         
                     <label>Kode Tunjangan</label>

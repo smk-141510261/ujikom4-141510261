@@ -1,12 +1,12 @@
 <?php $__env->startSection('content'); ?>
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-5 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">Tambah Golongan</div>
 
                 <div class="panel-body">
-                    <a href="<?php echo e(url('/golong')); ?>" class="btn btn-success btn-block">Kembali</a><br>
+                    <a href="<?php echo e(url('/golong')); ?>" class="btn btn-success">Kembali</a><br>
                     <?php echo Form::open(['url'=>'golong']); ?>
 
                     <div class="form-group">
@@ -28,7 +28,7 @@
 
                     </div>
                     <div class="form-group">
-                        <?php echo Form::submit('save',['class'=>'btn btn-success form-control']); ?>
+                        <?php echo Form::submit('Simpan',['class'=>'btn btn-success form-control']); ?>
 
                     </div>
                     <?php echo Form::close(); ?>
