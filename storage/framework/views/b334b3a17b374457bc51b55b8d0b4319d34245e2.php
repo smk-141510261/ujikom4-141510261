@@ -10,46 +10,47 @@
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <td>No</td>
-                                <td>Kode Tunjangan</td>
-                                <td>Jumlah Jam Lembur</td>
-                                <td>Jumlah Uang Lembur</td>
-                                <td>Gaji Pokok </td>
-                                <td>Total Gaji</td>
-                                <td>Tanggal Pengambilan</td>
-                                <td>Status Pengambilan</td>
-                                <td>Petugas Penerima</td>
-                                <td colspan="2">Pilihan:</td>
-                            </tr>
-                        </thead>
-                        <tbody>
+                  <hr>
+                    <table id="datatable" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th><p class="center"><center>No.</center></p></th>
+                          <th><p class="center"><center>Pegawai</center></p></th>
+                          <th><p class="center"><center>Jumlah Jam Lembur</center></p></th>
+                          <th><p class="center"><center>Jumlah Uang Lembur</center></p></p></th>
+                          <th><p class="center"><center>Gaji Pokok</center></p></p></th>
+                          <th><p class="center"><center>Total Gaji</center></p></p></th>
+                          <th><p class="center"><center>Tanggal Pengambilan</center></p></p></th>
+                          <th><p class="center"><center>Status Pengambilan</center></p></p></th>
+                          <th><p class="center"><center>Petugas Penerima</center></p></p></th>
+                          <th colspan="3"><p class="center"><center>Pilihan:</center></p></th>
+                        </tr>
+                      </thead>
                             <?php 
-                            $i=1;
+                            $no = 1;
                              ?>
                             <?php $__currentLoopData = $gajian; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
+                            <tbody>
                                 <tr>
-                                    <td><?php echo e($i++); ?></td>
-                                    <td><?php echo e($data->TunjanganPegawai->Tunjangan->kode_tunjangan); ?></td>
-                                    <td><?php echo e($data->jumlah_jam_lembur); ?>
-
-                                    <td><?php echo e($data->jumlah_uang_lembur); ?></td>
-                                    <th><center><?php echo 'Rp.'. number_format($data->TunjanganPegawai->Tunjangan->Jabatan
-                                    ->besaran_uang+$data->TunjanganPegawai->Tunjangan->Golongan
-                                    ->besaran_uang,2,",","."); ?></center>
-                                    <td><?php echo e($data->total_gaji); ?></td>
-                                    <td><?php echo e($data->tgl_pengambilan); ?></td>
-                                    <td><?php echo e($data->status_pengambilan); ?></td>
-                                    <td><?php echo e($data->petugas_penerima); ?></td>
-                                    <td><a href="<?php echo e(route('gaji.edit',$data->id)); ?>" class="btn btn-warning">Ubah</a></td>
-                                    <td>
-                                    <?php echo Form::open(['method' => 'DELETE', 'route'=>['gaji.destroy', $data->id]]); ?>
-
-                                    <?php echo Form::submit('Hapus', ['class' => 'btn btn-danger']); ?>
-
-                                    <?php echo Form::close(); ?>
-
-                                    </td>
-                                </tr>
+                                    <td><?php echo e($no++); ?></td>
+                                    <td><?php echo e($data->TunjanganPegawai->Pegawai->User->name); ?></td>
+                                    <td><?php echo e($data->jumlah_jam_lembur); ?> </td>
+                                    <td><?php echo e($data->jumlah_uang_lembur); ?> </td>
+                                    <td><?php echo e($data->gaji_pokok); ?> </td>
+                                    <td><?php echo e($data->total_gaji); ?> </td>
+                                    <td><?php echo e($data->updated_at); ?> </td>
+                                    
+                                    <?php if($data->status_pengambilan == 0): ?>
+                                    
+                                        <td>Belum Diambil </td>
+                                    
+                                    <?php endif; ?>
+                                    <?php if($data->status_pengambilan == 1): ?>
+                                    
+                                        <td>Sudah Diambil</td>
+                                    
+                                    <?php endif; ?>
+                                  <td><?php echo e($data->petugas_penerima); ?> </td>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
                         </tbody>
                     </table>
@@ -59,5 +60,7 @@
     </div>
 </div>
 <?php $__env->stopSection(); ?>
-
+             
+              
+           
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

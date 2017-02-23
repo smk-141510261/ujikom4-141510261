@@ -12,60 +12,47 @@
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <td>No</td>
-                                <td>Kode Tunjangan</td>
-                                <td>Jumlah Jam Lembur</td>
-                                <td>Jumlah Uang Lembur</td>
-                                <td>Gaji Pokok </td>
-                                <td>Total Gaji</td>
-                                <td>Tanggal Pengambilan</td>
-                                <td>Status Pengambilan</td>
-                                <td>Petugas Penerima</td>
-                                <td colspan="2">Pilihan:</td>
-                            </tr>
-                        </thead>
-                        <tbody>
+                  <hr>
+                    <table id="datatable" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th><p class="center"><center>No.</center></p></th>
+                          <th><p class="center"><center>Pegawai</center></p></th>
+                          <th><p class="center"><center>Jumlah Jam Lembur</center></p></th>
+                          <th><p class="center"><center>Jumlah Uang Lembur</center></p></p></th>
+                          <th><p class="center"><center>Gaji Pokok</center></p></p></th>
+                          <th><p class="center"><center>Total Gaji</center></p></p></th>
+                          <th><p class="center"><center>Tanggal Pengambilan</center></p></p></th>
+                          <th><p class="center"><center>Status Pengambilan</center></p></p></th>
+                          <th><p class="center"><center>Petugas Penerima</center></p></p></th>
+                          <th colspan="3"><p class="center"><center>Pilihan:</center></p></th>
+                        </tr>
+                      </thead>
                             @php
-                            $i=1;
+                            $no = 1;
                             @endphp
-                            @foreach ($pegawai as $data)
+                            @foreach($gajian as $data)
+                            <tbody>
                                 <tr>
-                                    <td>{{$i++}}</td>
-                                    <td>{{$data->User->name}}</td>
-                                    <td>
-                                    @foreach($tunjangan as $tun)
-                                        @if($tun->pegawai_id == $data->id)
-                                        {{$tun->Tunjangan->besaran_uang}}
-                                        @php $satu=$tun->Tunjangan->besaran_uang;;
-                                        @endphp
-                                    @endforeach
-                                    </td>
-                                
-                                    <td>
-                                    @foreach($lembur as $lem)
-                                        @if($lem->pegawai_id == $lem->id)
-                                        {{$lem->jmlh_jam}}
-                                        @php $dua=$lem->jmlh_jam*$lem->KategoriLembur->besaran_uang;
-                                        @endphp
-                                    @endforeach
-                                    </td>
-
-                                     <td>
-                                    @foreach($lembur as $lem)
-                                        @if($lem->pegawai_id == $lem->id)
-                                        {{$lem->jmlh_jam}}
-                                        @php $dua=$lem->jmlh_jam*$lem->KategoriLembur->besaran_uang;
-                                        @endphp
-                                    @endforeach
-                                    </td>
-
-                                    <td><a href="{{route('gaji.edit',$data->id)}}" class="btn btn-warning">Ubah</a></td>
-                                    <td>
-                                    {!! Form::open(['method' => 'DELETE', 'route'=>['gaji.destroy', $data->id]]) !!}
-                                    {!! Form::submit('Hapus', ['class' => 'btn btn-danger']) !!}
-                                    {!! Form::close() !!}
-                                    </td>
-                                </tr>
+                                    <td>{{$no++}}</td>
+                                    <td>{{$data->TunjanganPegawai->Pegawai->User->name}}</td>
+                                    <td>{{$data->jumlah_jam_lembur}} </td>
+                                    <td>{{$data->jumlah_uang_lembur}} </td>
+                                    <td>{{$data->gaji_pokok}} </td>
+                                    <td>{{$data->total_gaji}} </td>
+                                    <td>{{$data->updated_at}} </td>
+                                    
+                                    @if($data->status_pengambilan == 0)
+                                    
+                                        <td>Belum Diambil </td>
+                                    
+                                    @endif
+                                    @if($data->status_pengambilan == 1)
+                                    
+                                        <td>Sudah Diambil</td>
+                                    
+                                    @endif
+                                  <td>{{$data->petugas_penerima}} </td>
                             @endforeach
                         </tbody>
                     </table>
@@ -75,3 +62,6 @@
     </div>
 </div>
 @endsection
+             
+              
+           

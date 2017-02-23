@@ -1,60 +1,57 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">Tambah Penggajian</div>
 
-                <div class="panel-body">
-                    <a href="{{url('/gaji')}}" class="btn btn-success">Kembali</a><br>
-                    {!! Form::open(['url'=>'gaji'])!!}
-                                        
-                    <label>Kode Tunjangan</label>
-                    <select name="tunjangan_pegawai_id" class="form-control" required>
-                        @foreach($tupe as $data)
-                        <option value="{{$data->id}}">{{$data->Tunjangan->kode_tunjangan}}</option>
-                        @endforeach
-                    </select><br>
-
-                    <div class="form-group">
-                        {!! Form::label('Jumlah jam lembur', 'Jumlah jam lembur') !!}
-                        {!! Form::text('jumlah_jam_lembur',null,['class'=>'form-control','required']) !!}
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::label('Jumlah uang lembur', 'Jumlah uang lembur') !!}
-                        {!! Form::text('jumlah_uang_lembur',null,['class'=>'form-control','required']) !!}
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::label('Total Gaji', 'Total Gaji') !!}
-                        {!! Form::text('total_gaji',null,['class'=>'form-control','required']) !!}
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::label('Tanggal Pengambilan', 'Tanggal Pengambilan') !!}
-                        {!! Form::date('tgl_pengambilan',null,['class'=>'form-control','required']) !!}
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::label('Status Pengambilan', 'Status Pengambilan') !!}
-                        {!! Form::text('status_pengambilan',null,['class'=>'form-control','required']) !!}
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::label('Petugas Penerima', 'Petugas Penerima') !!}
-                        {!! Form::text('petugas_penerima',null,['class'=>'form-control','required']) !!}
-                    </div>
-                    
-                    <div class="form-group">
-                        {!! Form::submit('save',['class'=>'btn btn-success form-control'])!!}
-                    </div>
-                    {!! Form::close()!!}
-                </div>
-            </div>
+<br><br><br><br><br><br><br>
+  <div class="container">
+            <div class="row">
+                    <center><h2>Tambah Penggajian</h2></center>
+                    <br />
+              {!! Form::open(['url' => 'gaji', 'class' => 'form-horizontal form-label-left']) !!}
+    <div class="form-group">
+        <div class="control-label col-md-3 col-sm-3 col-xs-12">
+            {!! Form::label('Pegawai', 'Pegawai ') !!}
+             <span class="required">*</span>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <select class="form-control col-md-7 col-xs-12" name="tunjangan_pegawai_id">
+            <option> NIP || Nama Pegawai </option>
+            @foreach($gaji as $data)
+                <option value="{{$data->id}}">{{$data->Pegawai->nip}}&nbsp;|&nbsp;{{$data->Pegawai->User->name}}</option>
+            @endforeach
+            </select>
         </div>
     </div>
-</div>
+    <div class="form-group">
+        <div class="control-label col-md-3 col-sm-3 col-xs-12">
+            {!! Form::label('Status Pengambilan', 'Status Pengambialn ') !!}
+             <span class="required">*</span>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+             <select name="status_pengambilan" class="form-control">
+                <option value="0">Belum Diambil</option>
+                <option value="1">Sudah Diambil</option>
+            </select>
+        </div>
+    </div>
+     <div class="col-md-6 col-sm-6 col-xs-12">
+      <span class="help-block">
+            {{$errors->first('tunjangan_pegawai_id')}}
+          </span>
+            <div>
+            @if(isset($error))
+            Check Lagi Gaji Sudah Ada
+            @endif
+            </div>
+            </div>
+       <div class="form-group">
+          <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+              {!! Form::submit('Simpan', ['class' => 'btn btn-success form-control']) !!}
+          </div>
+      </div>
+    </div>
+    {!! Form::close() !!}
+          </div>
+          </div>     
+    </div>
 @endsection
