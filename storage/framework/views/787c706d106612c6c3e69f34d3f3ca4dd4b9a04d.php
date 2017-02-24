@@ -56,7 +56,7 @@
                         <li><a href="<?php echo e(url('/gawai')); ?>">Pegawai</a></li>
                         <li><a href="<?php echo e(url('/lembur')); ?>">Lembur Pegawai</a></li>
                         <li><a href="<?php echo e(url('/tp')); ?>">Tunjangan Pegawai</a></li>
-                        <li><a href="<?php echo e(url('/gaji')); ?>">Penggajian</a></li>
+                        <li><a href="<?php echo e(url('/penggaji')); ?>">Penggajian</a></li>
 
 
                         &nbsp;

@@ -26,4 +26,4 @@ Route::resource('/tunjang', 'tunjanganController');
 Route::resource('/kategori', 'kategoriController');
 Route::resource('/lembur', 'lemburController');
 Route::resource('/tp', 'tunjangpegawaiController');
-Route::resource('/gaji', 'penggajianController');
+Route::resource('/penggaji', 'penggajianController');

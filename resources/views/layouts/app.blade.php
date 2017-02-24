@@ -55,7 +55,7 @@
                         <li><a href="{{ url('/gawai') }}">Pegawai</a></li>
                         <li><a href="{{ url('/lembur') }}">Lembur Pegawai</a></li>
                         <li><a href="{{ url('/tp') }}">Tunjangan Pegawai</a></li>
-                        <li><a href="{{ url('/gaji') }}">Penggajian</a></li>
+                        <li><a href="{{ url('/penggaji') }}">Penggajian</a></li>
 
 
                         &nbsp;

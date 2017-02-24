@@ -6,7 +6,7 @@
                 <div class="panel-heading">Penggajian</div>
 
                 <div class="panel-body">
-                    <center><a href="<?php echo e(url('/gaji/create')); ?>" class="btn btn-success">Tambah Penggajian</a></center><br>
+                    <center><a href="<?php echo e(url('/penggaji/create')); ?>" class="btn btn-success">Tambah Penggajian</a></center><br>
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
@@ -14,16 +14,16 @@
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th><p class="center"><center>No.</center></p></th>
-                          <th><p class="center"><center>Pegawai</center></p></th>
-                          <th><p class="center"><center>Jumlah Jam Lembur</center></p></th>
-                          <th><p class="center"><center>Jumlah Uang Lembur</center></p></p></th>
-                          <th><p class="center"><center>Gaji Pokok</center></p></p></th>
-                          <th><p class="center"><center>Total Gaji</center></p></p></th>
-                          <th><p class="center"><center>Tanggal Pengambilan</center></p></p></th>
-                          <th><p class="center"><center>Status Pengambilan</center></p></p></th>
-                          <th><p class="center"><center>Petugas Penerima</center></p></p></th>
-                          <th colspan="3"><p class="center"><center>Pilihan:</center></p></th>
+                          <td>No.</td>
+                          <td>Pegawai</td>
+                          <td>Jumlah Jam Lembur</td>
+                          <td>Jumlah Uang Lembur</td>
+                          <td>Gaji Pokok</td>
+                          <td>Total Gaji</td>
+                          <td>Tanggal Pengambilan</td>
+                          <td>Status Pengambilan</td>
+                          <td>Petugas Penerima</td>
+                          <td>Pilihan:</td>
                         </tr>
                       </thead>
                             <?php 
@@ -51,6 +51,15 @@
                                     
                                     <?php endif; ?>
                                   <td><?php echo e($data->petugas_penerima); ?> </td>
+                                  <td>
+                                    <?php echo Form::open(['method' => 'DELETE', 'route'=>['penggaji.destroy', $data->id]]); ?>
+
+                                    <?php echo Form::submit('Hapus', ['class' => 'btn btn-danger']); ?>
+
+                                    <?php echo Form::close(); ?>
+
+                                    </td>
+                                </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
                         </tbody>
                     </table>
