@@ -10,7 +10,7 @@ class Pegawai extends Model
     protected $table='pegawais';
     protected $fillable=array('nip','user_id','jabatan_id','golongan_id','photo');
     protected $visible=array('nip','user_id','jabatan_id','golongan_id','photo');
-
+    public $timestamps=true;
 
     public function LemburPegawai(){
     	return $this->hasMany('App\LemburPegawai','pegawai_id');

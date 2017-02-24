@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             <label for="photo" class="form-group">Photo</label>
-                            <img src="{{asset('img/'.$data->photo.'')}}" width="75" height="75" class="img-rounded img-responsive" alt="Responsive image">
+                            <img src="{{asset('img/'.$pegawai->photo.'')}}" width="75" height="75" class="img-rounded img-responsive" alt="Responsive image">
                                 <input type="file" name="photo" class="form-control" nullable>
                         </div>
                         <div class="form-group">

@@ -10,6 +10,7 @@ class Jabatan extends Model
     protected $table='jabatans';
     protected $fillable=array('kode_jabatan','nama_jabatan','besaran_uang');
     protected $visible=array('kode_jabatan','nama_jabatan','besaran_uang');
+    public $timestamps=true;
 
     public function KategoriLembur(){
     	return $this->hasMany('App\KategoriLembur','jabatan_id');

@@ -10,7 +10,7 @@ class Tunjangan extends Model
     protected $table='tunjangans';
     protected $fillable=array('kode_tunjangan','jabatan_id','golongan_id','status','jumlah_anak','besaran_uang');
     protected $visible=array('kode_tunjangan','jabatan_id','golongan_id','status','jumlah_anak','besaran_uang');
-
+    public $timestamps=true;
 
     public function Jabatan(){
     	return $this->belongsTo('App\Jabatan','jabatan_id');

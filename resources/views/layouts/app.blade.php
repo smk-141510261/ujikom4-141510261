@@ -23,7 +23,7 @@
 <body>
 <style>
  html,body{
-    background-image:url(tum.gif); 
+    background-image:url(cat.gif); 
  }</style>
     <div id="app">
         <nav class="navbar navbar-info navbar-static-top">

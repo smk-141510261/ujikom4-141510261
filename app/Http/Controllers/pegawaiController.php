@@ -132,8 +132,14 @@ class pegawaicontroller extends Controller
         //
         
         $pegawai = Pegawai::find($id);
+        $pegawai->nip = $request->get('nip');
+        $pegawai->jabatan_id = $request->get('jabatan_id');
+        $pegawai->golongan_id = $request->get('golongan_id');
+
         if($request->hasFile('photo'))
         {
+            
+
             $filename = null;
             $uploaded_photo = $request->file('photo');
             $extension = $uploaded_photo->getClientOriginalExtension();
@@ -149,12 +155,10 @@ class pegawaicontroller extends Controller
 
                 }
             }
-            $pegawai->nip = $request->get('nip');
-            $pegawai->jabatan_id = $request->get('jabatan_id');
-            $pegawai->golongan_id = $request->get('golongan_id');
-            $pegawai->photo = $filename;
-            $pegawai->save();
+           $pegawai->photo = $filename;
+            
         }
+        $pegawai->update();
 
             return redirect('gawai');
     }

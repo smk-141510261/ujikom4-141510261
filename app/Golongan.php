@@ -10,7 +10,7 @@ class Golongan extends Model
     protected $table='golongans';
     protected $fillable=array('kode_golongan','nama_golongan','besaran_uang');
     protected $visible=array('kode_golongan','nama_golongan','besaran_uang');
-
+    public $timestamps=true;
 
     public function KategoriLembur(){
     	return $this->hasMany('App\KategoriLembur','golongan_id');
